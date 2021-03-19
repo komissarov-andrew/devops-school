@@ -22,7 +22,7 @@ jobs:
         - name: 1.3 ADD INFO FROM UI
           run: |
             sudo chmod 777 /home/runner/work/devops-school/devops-school/log.md
-            echo "UI var: ${{ github.event.inputs.var1 }}" >> /home/runner/work/devops-school/devops-school/log.md
+            echo "\nUI var: ${{ github.event.inputs.var1 }}" >> /home/runner/work/devops-school/devops-school/log.md
         - name: 1.3 DOWNLOAD ARTIFACT
           uses: actions/upload-artifact@v2
           with:
