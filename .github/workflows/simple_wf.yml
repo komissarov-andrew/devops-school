@@ -21,7 +21,7 @@ jobs:
           uses: ./.github/actions/action_1.2
         - name: 1.3 ADD INFO FROM UI
           run: |
-            echo "UI var: ${{ github.event.inputs.var1 }}" >> /home/runner/work/devops-school/devops-school/log.md
+            sudo echo "UI var: ${{ github.event.inputs.var1 }}" >> /home/runner/work/devops-school/devops-school/log.md
         - name: 1.3 DOWNLOAD ARTIFACT
           uses: actions/upload-artifact@v2
           with:
