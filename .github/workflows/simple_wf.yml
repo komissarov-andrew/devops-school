@@ -2,7 +2,11 @@ name: Simple Workflow
 
 on:
     workflow_dispatch:
-
+      inputs:
+        var1:
+          description: 'Data to logging'
+          required: true
+          default: 'default'
 jobs:
 
     TIMESTAMP:
@@ -15,6 +19,9 @@ jobs:
             cp ./scripts/main.py ./.github/actions/action_1.2/main.py
         - name: 1.2 EXECUTING THE PYTHON SCRIPT
           uses: ./.github/actions/action_1.2
+        - name: 1.3 ADD INFO FROM UI
+          run: |
+            echo "UI var: ${{ github.event.inputs.var1 }}" >> /home/runner/work/devops-school/devops-school/log.md
         - name: 1.3 DOWNLOAD ARTIFACT
           uses: actions/upload-artifact@v2
           with:
